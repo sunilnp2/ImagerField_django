@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImageField</title>
+</head>
+<body>
+    <h1>This is ImageField in Django</h1>
+    {% if messages %}
+    {% for mess in messages %}
+    <h2 style = "bacoground-color:lightgray; color:green; font-weight:bold;">{{mess}}</h2>
+    {% endfor %}
+    {% endif %}
+    <form  method = "post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% comment %} {{ }} {% endcomment %}
+        {% for form in fm %}
+        <label for="">{{form.label_tag}}</label> <br>
+        {{form}} <span style = "font-size:0.6em; color:red;"></span> <br>
+        {% endfor %}
+        <button type= 'submit'>Submit</button>
+    </form>
+
+    <style>
+        form{
+            width:50vw;
+            margin:20px auto;
+            background-color:lightgray;
+            box-shadow: 6px 10px 9px red;
+            text-align:center;
+            height:20vw
+        }
+        .container{
+            width:60vw;
+            margin:20px auto;
+            box-shadow: 6px 10px 9px red;
+            height:auto;
+            display:flex;
+            flex-direction:column;
+            {% comment %} justify-content:center; {% endcomment %}
+            align-items:center;
+            
+        }
+        h2{
+            width:50vw;
+            margin:20px auto;
+            background-color:lightgray;
+            box-shadow: 6px 10px 3px black;
+            text-align:center;
+            {% comment %} height:20vw {% endcomment %}
+        }
+         h1{
+            width:50vw;
+            margin:20px auto;
+            background-color:lightgray;
+            box-shadow: 6px 10px 4px green;
+            text-align:center;
+            {% comment %} height:20vw {% endcomment %}
+         }
+
+        form input{
+            width: 60%;
+            padding:8px 10px;
+            font-size:1.1em;
+            border-radius:8px;
+            margin:5px;
+        }
+
+        form label, button{
+            position: absolute;
+            float:left;
+            font-size:1.1em;
+            font-weight:bold;
+            margin-right:150px;
+        } 
+
+        tr, td{
+            padding:5px 50px;
+            margin:5px 30px;
+            {% comment %} border:1px solid red; {% endcomment %}
+            box-shadow:5px 4px 3px black;
+        }
+        th{
+            padding:5px 50px;
+            margin:5px 30px;
+            {% comment %} border:1px solid red; {% endcomment %}
+            box-shadow:5px 4px 3px green;  
+        }
+        table{
+            margin:20px auto;
+        }
+    </style>
+</body>
+</html>
